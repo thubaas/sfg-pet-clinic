@@ -3,9 +3,9 @@ package com.thubaas.sfgpetclinic.services.map;
 import java.util.Set;
 
 import com.thubaas.sfgpetclinic.models.Vet;
-import com.thubaas.sfgpetclinic.services.CrudService;
+import com.thubaas.sfgpetclinic.services.VetService;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Override
 	public Vet save(Vet vet) {
@@ -17,7 +17,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
 		return super.findAll();
 	}
 	
-	@Override
+	@Override 
 	public Vet findById(Long id) {
 		return super.findById(id);
 	}

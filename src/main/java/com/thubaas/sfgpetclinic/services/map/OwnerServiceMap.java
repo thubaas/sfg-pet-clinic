@@ -3,19 +3,19 @@ package com.thubaas.sfgpetclinic.services.map;
 import java.util.Set;
 
 import com.thubaas.sfgpetclinic.models.Owner;
-import com.thubaas.sfgpetclinic.services.CrudService;
+import com.thubaas.sfgpetclinic.services.OwnerService;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Override
-	public Owner save(Owner object) {
-		return super.save(object.getId(), object);
+	public Owner save(Owner owner) {
+		return super.save(owner.getId(), owner);
 	}
 
 	@Override
 	public Set<Owner> findAll() {
 		return super.findAll();
-	}
+	} 
 
 	@Override
 	public Owner findById(Long id) {
@@ -30,6 +30,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 	@Override
 	public void deleteById(Long id) {
 		super.deleteById(id);
+	}
+	
+	@Override
+	public Owner findByLastName(String lastName) {
+		return null;
 	}
 
 }
