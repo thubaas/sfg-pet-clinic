@@ -7,20 +7,17 @@ import com.thubaas.sfgpetclinic.models.Owner;
 import com.thubaas.sfgpetclinic.models.Vet;
 import com.thubaas.sfgpetclinic.services.OwnerService;
 import com.thubaas.sfgpetclinic.services.VetService;
-import com.thubaas.sfgpetclinic.services.map.OwnerServiceMap;
-import com.thubaas.sfgpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 	
 	public final OwnerService ownerService;
 	private final VetService vetService;
-
-	public DataLoader() { 
+	
+	public DataLoader(OwnerService ownerService, VetService vetService) {
 		super();
-		ownerService = new OwnerServiceMap();
-		vetService = new VetServiceMap();
-		
+		this.ownerService = ownerService;
+		this.vetService = vetService;
 	}
 
 	@Override
