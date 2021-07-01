@@ -2,9 +2,12 @@ package com.thubaas.sfgpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.thubaas.sfgpetclinic.models.Visit;
 import com.thubaas.sfgpetclinic.services.VisitService;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> 
 implements VisitService {
 
@@ -32,7 +35,7 @@ implements VisitService {
 	}
 
 	@Override
-	public void delete(Visit visit) {
+	public void delete(Visit visit) { 
 		super.delete(visit);
 	}
 
