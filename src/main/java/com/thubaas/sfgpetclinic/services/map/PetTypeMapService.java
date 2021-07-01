@@ -2,13 +2,16 @@ package com.thubaas.sfgpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.thubaas.sfgpetclinic.models.PetType;
 import com.thubaas.sfgpetclinic.services.PetTypeService;
 
 @Service
-public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
+@Profile({"default", "map"})
+public class PetTypeMapService extends AbstractMapService<PetType, Long> 
+implements PetTypeService {
 	
 	@Override
 	public Set<PetType> findAll(){

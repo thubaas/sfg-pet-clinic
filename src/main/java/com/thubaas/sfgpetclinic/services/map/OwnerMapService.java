@@ -2,6 +2,7 @@ package com.thubaas.sfgpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.thubaas.sfgpetclinic.models.Owner;
@@ -11,12 +12,15 @@ import com.thubaas.sfgpetclinic.services.PetService;
 import com.thubaas.sfgpetclinic.services.PetTypeService;
 
 @Service
-public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
+@Profile({"default", "map"})
+public class OwnerMapService extends AbstractMapService<Owner, Long> 
+implements OwnerService {
 	
 	private final PetTypeService petTypeService;
 	private final PetService petService;
 	
-	public OwnerMapService(PetTypeService petTypeService, PetService petService) {
+	public OwnerMapService(PetTypeService petTypeService, 
+			PetService petService) {
 		super();
 		this.petTypeService = petTypeService;
 		this.petService = petService;
@@ -29,7 +33,8 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 				owner.getPets().forEach(pet -> {
 					if(pet.getPetType() != null) {
 						if(pet.getPetType().getId() == null) {
-							pet.setPetType(petTypeService.save(pet.getPetType()));
+							pet.setPetType(
+									petTypeService.save(pet.getPetType()));
 						}
 					} else {
 						throw new RuntimeException("Pet Type is required.");
