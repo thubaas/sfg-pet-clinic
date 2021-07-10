@@ -1,7 +1,5 @@
 package com.thubaas.sfgpetclinic.models;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -25,4 +23,11 @@ public class PetType extends BaseEntity {
 	
 	@Column(name = "name")
 	private String name;
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+	
 }
