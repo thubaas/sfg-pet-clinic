@@ -1,8 +1,6 @@
 package com.thubaas.sfgpetclinic.models;
 
 import java.time.LocalDate;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -27,7 +25,7 @@ public class Visit extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "date")
-	private LocalDate localDate;
+	private LocalDate date;
 	
 	@Column(name = "description")
 	private String description;
